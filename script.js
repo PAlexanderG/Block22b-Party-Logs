@@ -45,7 +45,7 @@ const deleteParty = async (id) => {
       method: "DELETE",
     };
     const response = await fetch(`${PARTIES_API_URL}/${id}`, requestOptions);
-    const party = await response.json();
+    const party = await response.json(); // method.json();
     return party;
   } catch (error) {
     console.error(error);
@@ -73,8 +73,9 @@ const renderSinglePartyById = async (id) => {
     // const gifts = await giftsResponse.json();
 
     // create new HTML element to display party details
-    const partyDetailsElement = document.createElement("div");
+    const partyDetailsElement = document.createElement("div"); // method an instance of the element for the specified tag.
     partyDetailsElement.classList.add("party");
+    // HTMLDivElement (property)
     partyDetailsElement.innerHTML = `
             <h2>${party.name}</h2>
             <p>${party.location}</p>
@@ -100,14 +101,16 @@ const renderSinglePartyById = async (id) => {
             <button class="close-button">Close</button>
         `;
 
-    // hide the party list container
+    // hide the party list container (style.display = "none";)
     partyListContainer.style.display = "none";
 
     // put the party details on the page ( in the container )
+    // (method) Node.appendChild<HTMLDivElement>(node: HTMLDivElement): HTMLDivElement
     partyContainer.appendChild(partyDetailsElement);
 
     // add event listener to close button
     const closeButton = partyDetailsElement.querySelector(".close-button");
+    // querySelector = returns the first element that is a descendant of node that matches selectors.
     closeButton.addEventListener("click", () => {
       partyDetailsElement.remove();
       partyListContainer.style.display = "flex";
@@ -172,7 +175,6 @@ const renderParties = async (parties) => {
 
 // init function
 const init = async () => {
-  // your code here
   const parties = await getAllParties();
   // console.log(parties);
   renderParties(parties); // <- put parties in here as an argument

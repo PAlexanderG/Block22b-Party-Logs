@@ -3,3 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+h2 {
+  text-align: center;
+}
+p {
+  text-align: left;
+  padding: 6px;
+}
