@@ -177,7 +177,7 @@ const renderParties = async (parties) => {
 const init = async () => {
   const parties = await getAllParties();
   // console.log(parties);
-  renderParties(parties); // <- put parties in here as an argument
+  renderParties(parties); // An argument (parties)
 };
 
 init();
